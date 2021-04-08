@@ -11,30 +11,41 @@ var equalPressed = false;
 
 function math(a, b, operation) { //все вычисления проходят здесь
     switch (operation) {
-        case "+": return result = a + b; break;
-        case "-": return result = a - b; break;
-        case "*": return result = a * b; break;
-        case "/": if (b != 0) return result = a / b;
-        else {
-            alert("Делить на 0 нельзя!");
-            signCE();
-        }
-        case "%": return result = a * b * 0.01;
-        case "^": {
-            var tempA = 1;
-            for (var i = 0; i < b; i++) {
-                var tempA = tempA * a;
+        case "+":
+            return result = a + b;
+            break;
+        case "-":
+            return result = a - b;
+            break;
+        case "*":
+            return result = a * b;
+            break;
+        case "/":
+            if (b != 0) return result = a / b;
+            else {
+                alert("Делить на 0 нельзя!");
+                signCE();
             }
-            return result = tempA;
-        }
-        case "R": {
-            return result = Math.sqrt(a);
-        }
-        case "F": if (a != 0) return result = 1 / a;
-        else {
-            alert("Делить на 0 нельзя!");
-            signCE();
-        }
+        case "%":
+            return result = a * b * 0.01;
+        case "^":
+            {
+                var tempA = 1;
+                for (var i = 0; i < b; i++) {
+                    var tempA = tempA * a;
+                }
+                return result = tempA;
+            }
+        case "R":
+            {
+                return result = Math.sqrt(a);
+            }
+        case "F":
+            if (a != 0) return result = 1 / a;
+            else {
+                alert("Делить на 0 нельзя!");
+                signCE();
+            }
     }
 };
 
@@ -51,8 +62,7 @@ function digitPressed() { //нажата цифра
     if (!signWasPressed) { //если первое число
         if (a !== "0") a += digit; // если набор продолжается - прибавляем цифру
         else a = digit; // число новое, цифра должна быть первой
-    }
-    else { //если второе число
+    } else { //если второе число
         if (b !== "0") b += digit; // -//-
         else b = digit; // -//-
     }
@@ -72,8 +82,14 @@ function operationChosed() { //нажат знак операции
 };
 
 function displayValues() { //вывод всех значений в поле
-    if (equalPressed) document.getElementById("score").value = String(result); // вычисление уже совершено
-    else document.getElementById("score").value = a + operation + b; //новое вычисление
+    if (equalPressed) {
+        document.getElementById("score").value = String(result); // вычисление уже совершено
+        document.getElementById("story").value += `\n` + document.getElementById("score").value;
+    } else {
+        document.getElementById("score").value = a + operation + b; //новое вычисление
+        document.getElementById("story").value += "";
+
+    }
 };
 
 function digit1() {
@@ -144,8 +160,7 @@ function digit0() {
     if (!signWasPressed) { // если первое число
         if (a === "0") digit = ""; //если число уже 0, добавлять будет нечего
         else digit = "0";
-    }
-    else { //если второе число
+    } else { //если второе число
         if (b === "0") digit = ""; // -//-
         else digit = "0";
     }
@@ -158,8 +173,7 @@ function digit000() { // аналогично с "0"
     if (!signWasPressed) {
         if (a === "") digit = "";
         else digit = "000";
-    }
-    else {
+    } else {
         if (b === "") digit = "";
         else digit = "000";
     }
@@ -184,8 +198,7 @@ function digitPoint() { //ставим точку // одна точка на о
         if (!signWasPressed) { //знак операции ещё не был нажат, это первое число 
             if (a !== "") digit = "."; // если число уже есть
             else digit = "0."; // если числа ещё нет
-        }
-        else { //знак операции уже был нажат, это второе число 
+        } else { //знак операции уже был нажат, это второе число 
             if (b !== "") digit = "."; // -//-
             else digit = "0."; // -//-
         }
@@ -266,8 +279,7 @@ function signPlMn() {
     if (!signWasPressed) { //если число первое
         if ((Number(a)) > 0) a = "-" + a; //если больше нуля - добавить в начало минус
         else a = String(0 - (Number(a))); // если <=0 - делаем положительным
-    }
-    else {// если второе
+    } else { // если второе
         if ((Number(b)) > 0) b = "-" + b;
         else b = String(0 - (Number(b)));
     }
@@ -281,34 +293,31 @@ function equal() { // вычисляем
         if (!equalPressed) { // вычисление новое
             math(Number(a), Number(b), operation); // перейти к вычислениям
             equalPressed = true; //вычисление совершено
-        }
-        else math(result, Number(b), operation); // вычисление продолжается // отправляем результат как первое число
+        } else math(result, Number(b), operation); // вычисление продолжается // отправляем результат как первое число
         displayValues(); // вывести результат
     }
 };
 
 btnEqual.onclick = equal;
 
-signC = function () {
+signC = function() {
     if (equalPressed) { // если вычисление произошло
         result = result.slice(0, -1); // стираем последний символ
         if (!~a.indexOf(".")) pointPressed = false; // если стёрли точку, разрешаем новую
+    } else // вычисления ещё не было
+    if (!signWasPressed) { //если число первое
+        a = a.slice(0, -1); // стираем последний символ
+        if (!~a.indexOf(".")) pointPressed = false; // если стёрли точку, разрешаем новую
+    } else { //если число второе
+        b = b.slice(0, -1);
+        if (!~b.indexOf(".")) pointPressed = false;
     }
-    else // вычисления ещё не было
-        if (!signWasPressed) { //если число первое
-            a = a.slice(0, -1); // стираем последний символ
-            if (!~a.indexOf(".")) pointPressed = false; // если стёрли точку, разрешаем новую
-        }
-        else { //если число второе
-            b = b.slice(0, -1);
-            if (!~b.indexOf(".")) pointPressed = false;
-        }
     displayValues();
 };
 
 btnC.onclick = signC;
 
-function signCE () { //очистка значения
+function signCE() { //очистка значения
     pointPressed = false; // разрешаем точку
     if (!signWasPressed) a = ""; // если число первое, обнуляем его
     else b = ""; //если второе
@@ -317,7 +326,7 @@ function signCE () { //очистка значения
 
 btnCE.onclick = signCE;
 
-function signCA () { //обнуляем все переменные //memory обнуляется отдельной кнопкой
+function signCA() { //обнуляем все переменные //memory обнуляется отдельной кнопкой
     digit = "";
     a = "";
     b = "";
@@ -331,7 +340,7 @@ function signCA () { //обнуляем все переменные //memory о�
 
 btnCA.onclick = signCA;
 
-function signMemPlus () { //прибавить в память
+function signMemPlus() { //прибавить в память
     if (equalPressed) memory += result; // если операция уже произошла
     else if (!signWasPressed) memory += Number(a); // если число первое
     else memory += Number(b);
@@ -341,12 +350,12 @@ function signMemPlus () { //прибавить в память
 
 btnMemPlus.onclick = signMemPlus;
 
-btnMemPlus.onmouseover = function () {
+btnMemPlus.onmouseover = function() {
     this.getElementsByClassName("hint")[0].innerHTML = String(memory);
 };
 
 
-function signMemMinus () { //вычесть из памяти 
+function signMemMinus() { //вычесть из памяти 
     if (equalPressed) memory -= result; // если операция уже произошла
     else if (!signWasPressed) memory -= Number(a); // если число первое
     else memory -= Number(b);
@@ -356,11 +365,11 @@ function signMemMinus () { //вычесть из памяти
 
 btnMemMinus.onclick = signMemMinus;
 
-btnMemMinus.onmouseenter = function () {
+btnMemMinus.onmouseenter = function() {
     this.getElementsByClassName("hint")[0].innerHTML = String(memory);
 };
 
-function signMemRecall () {  //показать значение в памяти
+function signMemRecall() { //показать значение в памяти
     if (equalPressed) result = memory;
     else if (!signWasPressed) a = String(memory);
     else b = String(memory);
@@ -370,36 +379,72 @@ function signMemRecall () {  //показать значение в памяти
 
 btnMemRecall.onclick = signMemRecall;
 
-btnMemRecall.onmouseenter = function () {
+btnMemRecall.onmouseenter = function() {
     this.getElementsByClassName("hint")[0].innerHTML = String(memory);
 };
 
-function signMemClear () { //очистить значение в памяти
+function signMemClear() { //очистить значение в памяти
     memory = 0;
     tempMemory = 0;
 };
 
 btnMemClear.onclick = signMemClear;
 
-document.addEventListener("keyup", function (keyPressed) { // управление с клавиатуры
+document.addEventListener("keyup", function(keyPressed) { // управление с клавиатуры
     switch (keyPressed.keyCode) {
-        case 96: digit0(); break; //numpad Num0-9 -//-
-        case 97: digit1(); break;
-        case 98: digit2(); break;
-        case 99: digit3(); break;
-        case 100: digit4(); break;
-        case 101: digit5(); break;
-        case 102: digit6(); break;
-        case 103: digit7(); break;
-        case 104: digit8(); break;
-        case 105: digit9(); break; // -//-
-        case 106: signMulti(); break; // Num *
-        case 107: signPlus(); break; // Num +
-        case 109: signMinus(); break; // Num -
-        case 110: digitPoint(); break; // Num .
-        case 108: signDivide(); break; // Num /
-        case 13: signEqual(); break; // Num Enter
-        case 8: signC(); break; // Backspace
-        case 46: signCA(); break; // Del
+        case 96:
+            digit0();
+            break; //numpad Num0-9 -//-
+        case 97:
+            digit1();
+            break;
+        case 98:
+            digit2();
+            break;
+        case 99:
+            digit3();
+            break;
+        case 100:
+            digit4();
+            break;
+        case 101:
+            digit5();
+            break;
+        case 102:
+            digit6();
+            break;
+        case 103:
+            digit7();
+            break;
+        case 104:
+            digit8();
+            break;
+        case 105:
+            digit9();
+            break; // -//-
+        case 106:
+            signMulti();
+            break; // Num *
+        case 107:
+            signPlus();
+            break; // Num +
+        case 109:
+            signMinus();
+            break; // Num -
+        case 110:
+            digitPoint();
+            break; // Num .
+        case 108:
+            signDivide();
+            break; // Num /
+        case 13:
+            signEqual();
+            break; // Num Enter
+        case 8:
+            signC();
+            break; // Backspace
+        case 46:
+            signCA();
+            break; // Del
     }
 });

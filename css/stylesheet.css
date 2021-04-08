@@ -1,72 +1,75 @@
 ﻿body {
     background-color: #72dbb1;
     font-family: Arial, Sans-Serif;
-    margin: 0px auto;
+    margin: 0;
+    padding: 0;
     max-width: 900px;
-    border: solid 4px white;
+    height: 99vh;
+    border: solid 0.5vh white;
+    display: flex;
+    flex-direction: column;
 }
 
-header {
+.pageHeader,
+.pageSection,
+.pageFooter {
     display: block;
+    margin: 0;
+    padding: 0;
+}
+
+.pageHeader,
+.pageFooter {
     background-color: #0d60ba;
+    text-align: center;
+}
+
+.pageHeader {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
     color: White;
-    text-align: center;
 }
 
-h3 {
-    color: #0d60ba;
-    text-align: center;
+.pageFooter {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
-nav {
-    width: 25%;
-    float: left;
+.pageHeader h1 {
+    margin: auto;
 }
 
-nav a:link,
-nav a:visited {
-    display: block;
-    font-weight: bold;
-    padding: 10px;
-    text-decoration: none;
-    margin: 5px;
+.pageFooter h6 {
+    margin: auto;
 }
 
-nav a:hover {
-    color: White;
-    background-color: #0d60ba;
+.pageSection {
+    margin: auto;
+    display: flex;
 }
 
-section {
-    display: block;
-    width: 50%;
-    float: left;
+.innerSection {
+    margin: auto;
 }
 
-article header {
-    border-radius: 10px;
-    padding: 5px;
+.innerStory {
+    margin-inline: 10px;
 }
 
-article p {
-    margin: 10px;
-}
-
-aside {
-    float: left;
-    width: 25%;
-}
-
-aside p {
-    margin: 15px;
-}
-
-footer {
-    clear: both;
-    color: white;
-    background-color: #0d60ba;
-    text-align: center;
-    padding: 15px;
+.story {
+    width: 90%;
+    height: auto;
+    border: none;
+    border-radius: 5px;
+    margin: 0;
+    padding: 2px;
+    text-align: right;
+    color: black;
+    background: linear-gradient(rgb(198, 210, 211), rgb(203, 243, 245));
+    font-weight: 500;
+    font-stretch: condensed;
+    font-size: 10px;
+    font-family: "Lucida Console", Monaco, Courier, monospace;
 }
 
 .calc {
@@ -88,6 +91,7 @@ footer {
     padding: 5px;
     text-align: right;
     color: black;
+    background: linear-gradient(rgb(198, 210, 211), rgb(203, 243, 245));
     font-weight: 500;
     font-stretch: condensed;
     font-size: 35px;
@@ -102,13 +106,12 @@ footer {
     background: -o-linear-gradient(top, rgba(242, 246, 248, 1) 0%, rgba(181, 198, 208, 1) 23%, rgba(216, 225, 231, 1) 53%, rgba(224, 239, 249, 1) 100%);
     background: -ms-linear-gradient(top, rgba(242, 246, 248, 1) 0%, rgba(181, 198, 208, 1) 23%, rgba(216, 225, 231, 1) 53%, rgba(224, 239, 249, 1) 100%);
     background: linear-gradient(to bottom, rgba(242, 246, 248, 1) 0%, rgba(181, 198, 208, 1) 23%, rgba(216, 225, 231, 1) 53%, rgba(224, 239, 249, 1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f2f6f8', endColorstr='#e0eff9', GradientType=0);
-
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#f2f6f8', endColorstr='#e0eff9', GradientType=0);
     border-radius: 15px;
-    /* box-shadow: black 0 0 5px; */
-    /* text-shadow: 1px -1px #ebebeb, 1px 1px #ebebeb, -1px -1px #ebebeb, -1px 1px #ebebeb; */
+    box-shadow: black 0 0 5px;
+    text-shadow: 1px -1px #ebebeb, 1px 1px #ebebeb, -1px -1px #ebebeb, -1px 1px #ebebeb;
     border: 2px solid blue;
-    /* border-radius: 5px; */
+    border-radius: 5px;
     margin: 3px;
     padding: 0;
     text-align: center;
@@ -118,6 +121,7 @@ footer {
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
     cursor: pointer;
 }
+
 
 /* .cssbutton {
     width: 200px;
@@ -182,7 +186,6 @@ footer {
     transform: translateX(-5px);
 }
 
-
 .btnMem .success {
     position: absolute;
     z-index: -1;
@@ -192,7 +195,6 @@ footer {
     top: -15px;
     transition: 0.1s 0.4s;
 }
-
 
 .btnMem:active .success {
     z-index: 2;
@@ -216,7 +218,6 @@ footer {
     left: 5px;
     transition: 0.1s;
 }
-
 
 .btnMem:hover .hint {
     z-index: 1;

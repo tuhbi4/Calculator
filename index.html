@@ -3,25 +3,85 @@
 -->
 
 <!doctype html>
-<html lang="en">
+<html lang="en" manifest="Manifest.ashx">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Index</title>
+    <title>Calc</title>
 
-    <!--<link rel="stylesheet" href="css/stylesheet.css" />-->
+    <link rel="stylesheet" href="css/stylesheet.css" />
+
 </head>
+
 <body>
+    <header class="pageHeader">
+        <h1>Calculator</h1>
+    </header>
 
-    <img src="img/task.jpg" alt="Alternate Text" />
+    <section class="pageSection">
+        <article class="innerSection innerCalc">
+            <div class="calc">
+                <div>
+                    <input type="text" id="score" class="score" placeholder="0" readonly="readonly" />
+                </div>
+                <div>
+                    <button id="btnMemPlus" class="btnCalc btnMem"><span class="header">M+</span><span class="success">OK!</span><span class="hint">0</span></button>
+                    <button id="btnMemMinus" class="btnCalc btnMem"><span class="header">M-</span><span class="success">OK!</span><span class="hint">0</span></button>
+                    <button id="btnMemRecall" class="btnCalc btnMem"><span class="header">MR</span><span class="success">OK!</span><span class="hint">0</span></button>
+                    <button id="btnMemClear" class="btnCalc btnMem"><span class="header">MC</span><span class="success">OK!</span></button>
+                </div>
+                <div>
+                    <button id="btnCA" class="btnCalc btnSpecial"><span>CA</span></button>
+                    <button id="btnCE" class="btnCalc btnSpecial"><span>CE</span></button>
+                    <button id="btnC" class="btnCalc btnSpecial"><span>C</span></button>
+                    <button id="btnDivide" class="btnCalc btnOperation"><span>&divide;</span></button>
+                    <button id="btnFract" class="btnCalc btnSpecial"><span>&sup1;/x</span></button>
+                </div>
+                <div>
+                    <button id="btn7" class="btnCalc btnNumber"><span>7</span></button>
+                    <button id="btn8" class="btnCalc btnNumber"><span>8</span></button>
+                    <button id="btn9" class="btnCalc btnNumber"><span>9</span></button>
+                    <button id="btnMulti" class="btnCalc btnOperation"><span>&times;</span></button>
+                    <button id="btnExp" class="btnCalc btnSpecial"><span>x^</span></button>
+                </div>
+                <div>
+                    <button id="btn4" class="btnCalc btnNumber"><span>4</span></button>
+                    <button id="btn5" class="btnCalc btnNumber"><span>5</span></button>
+                    <button id="btn6" class="btnCalc btnNumber"><span>6</span></button>
+                    <button id="btnMinus" class="btnCalc btnOperation"><span>-</span></button>
+                    <button id="btnRad" class="btnCalc btnSpecial"><span>&radic;</span></button>
+                </div>
+                <div>
+                    <button id="btn1" class="btnCalc btnNumber"><span>1</span></button>
+                    <button id="btn2" class="btnCalc btnNumber"><span>2</span></button>
+                    <button id="btn3" class="btnCalc btnNumber"><span>3</span></button>
+                    <button id="btnPlus" class="btnCalc btnOperation"><span>+</span></button>
+                    <button id="btnPrcnt" class="btnCalc btnSpecial"><span>%</span></button>
+                </div>
+                <div>
+                    <button id="btn000" class="btnCalc btnNumber"><span>000</span></button>
+                    <button id="btn0" class="btnCalc btnNumber"><span>0</span></button>
+                    <button id="btnPoint" class="btnCalc btnNumber"><span>.</span></button>
+                    <button id="btnEqual" class="btnCalc btnOperation"><span>=</span></button>
+                    <button id="btnPlMn" class="btnCalc btnNumber"><span>&plusmn;</span></button>
+                </div>
+            </div>
+        </article>
+        <article class="innerSection innerStory">
+            <div>
+                <output name="story" id="story" class="story" placeholder="0" readonly="readonly" />
+            </div>
+        </article>
+    </section>
 
-    <hr /><h1><a href="001.html">Доп задание</a></h1><hr />
+    <footer class="pageFooter">
+        <h6>Created by @TuHbI4</h6>
+    </footer>
 
-    <hr /><h1><a href="002.html">Задание 2</a></h1><hr />
-
-    <hr /><h1><a href="030.html">Задание 3</a></h1><hr />
-
+    <script src="js/Calculator.js"></script>
 </body>
+
 </html>

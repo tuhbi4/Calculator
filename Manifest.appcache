@@ -2,14 +2,7 @@
 # Версия 3
 
 CACHE:
-Calc.html
+Calculator.html
 css/stylesheet.css
-js/calc.js
-
-NETWORK:
-index.html
-001.html
-002.html
-
-FALLBACK:
-/ offline.html
+js/Calculator.js
+images/icon-128x128.png
