@@ -1,0 +1,15 @@
+﻿CACHE MANIFEST
+# Версия 3
+
+CACHE:
+Calc.html
+css/stylesheet.css
+js/calc.js
+
+NETWORK:
+index.html
+001.html
+002.html
+
+FALLBACK:
+/ offline.html

@@ -1,0 +1,39 @@
+﻿<!--Дополнительное задание
+
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Index</title>
+
+    <!--<link rel="stylesheet" href="css/stylesheet.css" />-->
+
+    <script>
+        window.onload = function () {
+            document.getElementById("startButton").onclick = function () {
+
+                var worker = new Worker("js/worker.js");
+                var arraySize = Number(document.getElementById("size").value);
+
+                worker.addEventListener("message", function (messageFromWorker) {
+                    document.getElementById("output").innerHTML = "Размер массива: " + arraySize + "<br />" +
+                        "Исходный массив: " + messageFromWorker.data.arrayOfRandom + "<br />" +
+                        "Отсортированный массив: " + messageFromWorker.data.arrayOfSorted + "<br />";
+                });
+
+                worker.postMessage(arraySize);
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="size" autofocus="autofocus" placeholder="Введите размер массива (1 000 000)" style="width:220px" />
+    <button id="startButton">Start</button>
+    <p id="output"></p>
+</body>
+</html>
