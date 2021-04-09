@@ -36,11 +36,11 @@ function math(a, b, operation) { //все вычисления проходят 
                 }
                 return result = tempA;
             }
-        case "R":
+        case "(Sqrt)":
             {
                 return result = Math.sqrt(a);
             }
-        case "F":
+        case "(1/x)":
             if (a != 0) return result = 1 / a;
             else {
                 alert("Делить на 0 нельзя!");
@@ -250,7 +250,7 @@ function signExp() {
 btnExp.onclick = signExp;
 
 function signRad() {
-    operation = "R";
+    operation = "(Sqrt)";
     operationChosed()
     equal(); // число одно, сразу выводим
 };
@@ -258,7 +258,7 @@ function signRad() {
 btnRad.onclick = signRad;
 
 function signFract() {
-    operation = "F";
+    operation = "(1/x)";
     operationChosed()
     equal(); // число одно, сразу выводим
 };
