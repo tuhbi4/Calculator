@@ -31,6 +31,17 @@ h6 {
     margin: auto;
 }
 
+h1 a:link,
+h1 a:visited {
+    text-decoration: none;
+    color: white;
+    text-shadow: 1px 0px 10px rgb(92, 238, 201), 0px 1px 10px rgb(92, 238, 201), -1px 0px 10px rgb(92, 238, 201), 0px -1px 10px rgb(92, 238, 201);
+}
+
+h1 a:hover {
+    color: rgb(145, 241, 217);
+}
+
 .pageSection {
     margin: auto;
     display: flex;
