@@ -90,10 +90,25 @@ function displayValues() { //вывод всех значений в поле
     if (equalPressed) {
         document.getElementById("score").value = String(result); // вычисление уже совершено
         document.getElementById("fieldLog").value += `\n` + a + operation + b + "=" + document.getElementById("score").value;
+        rollingLog();
     } else {
         document.getElementById("score").value = a + operation + b; //новое вычисление
+        if (signWasPressed) {}
     }
 };
+
+btnLog.onclick = rollingLog;
+
+function rollingLog() {
+    var element = getComputedStyle(document.getElementById("innerLog"));
+    var textValue = element.top;
+    var stringArray = textValue.split("px");
+    if (stringArray[0] >= 13) {
+        var numberValue = stringArray[0] - 13;
+        var newString = numberValue + "px";
+        document.getElementById("innerLog").style.top = newString;
+    } else document.getElementById("innerLog").style.top = "5px";
+}
 
 function digit1() {
     digit = "1";
@@ -296,7 +311,10 @@ function signEqual() { // вычисляем
         if (!equalPressed) { // вычисление новое
             math(Number(a), Number(b), operation); // перейти к вычислениям
             equalPressed = true; //вычисление совершено
-        } else math(result, Number(b), operation); // вычисление продолжается // отправляем результат как первое число
+        } else {
+            a = result; // вычисление продолжается // отправляем результат как первое число
+            math(Number(a), Number(b), operation);
+        }
         displayValues(); // вывести результат
     }
 };
@@ -464,3 +482,67 @@ document.addEventListener("keyup", function(keyPressed) { // управлени�
             break; // Del
     }
 });
+
+// $(function() {
+//     BindHandlers();
+//     count_of_new_line = 0; /*This variable is global*/
+// });
+
+// function CaretPosition(ctrl) { /*This is to get the current position of cursor*/
+//     var CaretPos = 0;
+//     if (document.selection) {
+//         ctrl.focus();
+//         var Sel = document.selection.createRange();
+//         Sel.moveStart('character', -ctrl.value.length);
+//         CaretPos = Sel.text.length;
+//     } else if (ctrl.selectionStart || ctrl.selectionStart == '0')
+//         CaretPos = ctrl.selectionStart;
+//     return (CaretPos);
+// }
+
+// function BindHandlers() {
+//     $('#fieldLog').on({
+//         keyup: function(f) {
+//             var search_value = $(this).val();
+//             var cursorPosition = CaretPosition(document.getElementById('fieldLog'));
+//             var search_value_before_current_cursor = search_value.substr(0, cursorPosition);
+//             var latest_new_line = search_value_before_current_cursor.lastIndexOf("\n");
+//             var keycode = f.keyCode;
+//             if (keycode == 13) {
+//                 count_of_new_line = count_of_new_line + 1;
+//                 if (count_of_new_line > 3) {
+//                     var max_val = search_value.substr(0, latest_new_line);
+//                     $('#fieldLog').val(max_val);
+//                     search_value = max_val;
+//                     f.preventDefault();
+//                 }
+//             }
+//         }
+//     })
+// }
+
+btn.onclick = changeColorTheme1;
+
+function changeColorTheme1() {
+    var checkBox;
+    checkBox = document.getElementById("switcher");
+    if (checkBox.checked) {
+        var arrayOfElements = document.getElementsByClassName("btnCalc");
+        for (var index = 0; index < arrayOfElements.length; index++) {
+            arrayOfElements[index].classList.add("btnCalcCyan");
+        }
+        var arrayOfElements = document.getElementsByClassName("btnCalcCyan");
+        for (var index = 0; index < arrayOfElements.length; index++) {
+            arrayOfElements[index].classList.remove("btnCalc");
+        }
+    } else {
+        var arrayOfElements = document.getElementsByClassName("btnCalcCyan");
+        for (var index = 0; index < arrayOfElements.length; index++) {
+            arrayOfElements[index].classList.add("btnCalc");
+        }
+        var arrayOfElements = document.getElementsByClassName("btnCalc");
+        for (var index = 0; index < arrayOfElements.length; index++) {
+            arrayOfElements[index].classList.remove("btnCalcCyan");
+        }
+    }
+}

@@ -21,9 +21,25 @@
     <header class="pageHeader">
         <h1><a href="https://github.com/tuhbi4/Calculator">Calculator</a></h1>
     </header>
+    <button id="btnLog" class="btnCalc btnMem"><span class="header">RL</span><span class="success">OK!</span><span class="hint">0</span></button>
+    <div class="switcher-wrap">
+        <input type="checkbox" id="switcher" />
+        <label id="switcher-button" for="switcher">
+        <div id="btn"></div>
+        <div id="left"></div>
+        <div id="right"></div>
+    </label>
+    </div>
 
     <section class="pageSection">
+        <div class="innerSection">
+            <div id="innerLog">
+                <hr>
+                <textarea rows="25" cols="50" name="fieldLog" id="fieldLog" class="fieldLog" disabled></textarea>
+            </div>
+        </div>
         <article class="innerSection innerCalc">
+
             <div class="calc">
                 <div>
                     <input type="text" id="score" class="score" placeholder="0" readonly="readonly" />
@@ -72,14 +88,7 @@
                 </div>
             </div>
         </article>
-        <article class="innerSection innerLog">
-            <fieldset class="log">
-                <legend>Log:</legend>
-                <textarea rows="25" cols="25" name="fieldLog" id="fieldLog" class="fieldLog" disabled>
-                        </textarea>
 
-            </fieldset>
-        </article>
     </section>
 
     <footer class="pageFooter ">

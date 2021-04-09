@@ -1,17 +1,14 @@
 ﻿body {
-    background-color: #72dbb1;
+    background: rgb(255, 255, 255) url("../images/background.jpg") repeat scroll 0% 0%;
     font-family: Arial, Sans-Serif;
     margin: auto;
-    max-width: 900px;
-    height: 99vh;
-    border: solid 0.5vh white;
+    height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
 .pageHeader,
 .pageFooter {
-    background-color: #0d60ba;
     text-align: center;
 }
 
@@ -36,33 +33,70 @@ h1 a:visited {
     text-decoration: none;
     color: white;
     text-shadow: 1px 0px 10px rgb(92, 238, 201), 0px 1px 10px rgb(92, 238, 201), -1px 0px 10px rgb(92, 238, 201), 0px -1px 10px rgb(92, 238, 201);
+    transition-duration: 0.3s;
 }
 
 h1 a:hover {
     color: rgb(145, 241, 217);
+    transition-duration: 0.3s;
 }
 
 .pageSection {
     margin: auto;
-    display: flex;
 }
 
 .innerSection {
     margin: auto;
+    clear: both;
 }
 
 .innerHitory {
     margin-inline: 10px;
 }
 
+#innerLog {
+    float: right;
+    position: relative;
+    right: 25px;
+    top: 300px;
+    z-index: 0;
+}
+
 .fieldLog {
     border: none;
     color: black;
-    background: rgb(205, 224, 224);
+    background: #e2e3de;
+    padding: 3px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
     font-size: 10px;
-    font-family: "Lucida Console", Monaco, Courier, monospace;
+    font-family: Tahoma, Verdana;
     resize: none;
+    overflow: auto;
     text-align: right;
+}
+
+.fieldLog::-webkit-scrollbar {
+    width: 0;
+}
+
+#innerLog hr {
+    position: relative;
+    font-size: 10px;
+    height: 20px;
+    border: 0;
+    margin: 0;
+}
+
+#innerLog hr:after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    background-size: 6px 100%;
+    background-image: linear-gradient(315deg, #e2e3de 30%, transparent 30%), linear-gradient(45deg, #e2e3de 30%, transparent 30%);
+    background-position: 50%;
+    height: inherit;
 }
 
 .log {
@@ -77,31 +111,54 @@ h1 a:hover {
 }
 
 .calc {
-    width: 300px;
-    border: 3px solid blue;
-    border-radius: 5px;
+    position: relative;
+    z-index: 0;
+    width: 290px;
+    background: linear-gradient(0deg, #c8c8c8 285px, #a4a4a4 290px);
+    border-radius: 8px;
+    box-shadow: black 0 0 3px;
     margin: auto;
     padding: 5px;
 }
 
 .score {
-    width: 275px;
+    width: 87%;
     height: 35px;
-    border: 2px solid blue;
     border-radius: 5px;
     margin: 5px;
     padding: 5px;
     text-align: right;
     color: black;
-    background: linear-gradient(rgb(198, 210, 211), rgb(203, 243, 245));
+    background: linear-gradient(rgb(203, 243, 245), rgb(198, 210, 211));
     font-weight: 500;
     font-stretch: condensed;
     font-size: 35px;
-    font-family: "Lucida Console", Monaco, Courier, monospace;
+    font-family: Courier, "Lucida Console", monospace, Tahoma, Verdana;
 }
 
-.btnCalc {
-    background: rgba(242, 246, 248, 1);
+.score:focus,
+.btnCalc:focus {
+    outline: none;
+}
+
+.btnCalcCyan {
+    background-color: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 3px;
+    transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+    width: 50px;
+    height: 45px;
+    box-shadow: black 0 0 3px;
+    text-shadow: 1px -1px #ebebeb, 1px 1px #ebebeb, -1px -1px #ebebeb, -1px 1px #ebebeb;
+    transition: background 0.2s, border-color 0.2s;
+    margin: 2px;
+    font-weight: 500;
+    font-size: 21px;
+    font-family: Calibri, Monaco, Geneva, 'Myriad Pro', "Helvetica Neue", "Open Sans", Tahoma, Verdana;
+    cursor: pointer;
+    /* background: rgba(242, 246, 248, 1);
     background: -moz-linear-gradient(top, rgba(242, 246, 248, 1) 0%, rgba(181, 198, 208, 1) 23%, rgba(216, 225, 231, 1) 53%, rgba(224, 239, 249, 1) 100%);
     background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(242, 246, 248, 1)), color-stop(23%, rgba(181, 198, 208, 1)), color-stop(53%, rgba(216, 225, 231, 1)), color-stop(100%, rgba(224, 239, 249, 1)));
     background: -webkit-linear-gradient(top, rgba(242, 246, 248, 1) 0%, rgba(181, 198, 208, 1) 23%, rgba(216, 225, 231, 1) 53%, rgba(224, 239, 249, 1) 100%);
@@ -114,61 +171,74 @@ h1 a:hover {
     text-shadow: 1px -1px #ebebeb, 1px 1px #ebebeb, -1px -1px #ebebeb, -1px 1px #ebebeb;
     border: 2px solid blue;
     border-radius: 5px;
-    margin: 3px;
     padding: 0;
-    text-align: center;
-    font-weight: bold;
-    font-size: 20px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);*/
+}
+
+.btnCalcCyan:hover {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.btnCalc {
+    width: 50px;
+    height: 45px;
+    background: linear-gradient(180deg, #f7f7f7 0px, #dedede 25px, #c8c8c8 25px, #a4a4a4 50px);
+    border-radius: 8px;
+    box-shadow: black 0 0 3px;
+    text-shadow: 1px -1px #ebebeb, 1px 1px #ebebeb, -1px -1px #ebebeb, -1px 1px #ebebeb;
+    transition: background 0.2s, border-color 0.2s;
+    margin: 2px;
+    font-weight: 500;
+    font-size: 21px;
+    font-family: Calibri, Monaco, Geneva, 'Myriad Pro', "Helvetica Neue", "Open Sans", Tahoma, Verdana;
     cursor: pointer;
 }
 
-
-/* .cssbutton {
-    width: 200px;
-    height: 50px;
-    background: linear-gradient(180deg, #f7f7f7 0px, #dedede 25px, #c8c8c8 25px, #a4a4a4 50px);
-    border-radius: 15px;
-    box-shadow: black 0 0 5px;
-    font-size: 20px;
-    text-shadow: 1px -1px #ebebeb, 1px 1px #ebebeb, -1px -1px #ebebeb, -1px 1px #ebebeb;
-} */
-
 .btnCalc:hover {
-    background-color: linear-gradient(180deg, #c41f1f 0px, #191461 25px, #15b846 25px, f7f7f7#d2f50b 50px);
-    /* background-color: lightcyan; */
-    transition-duration: 0.1s;
+    background: linear-gradient(180deg, #ffffff 0px, #dedede 25px, #e2e2e2 25px, #a4a4a4 50px);
+    border-color: rgba(156, 156, 156, 0.3);
 }
 
 .btnCalc:active {
-    background-color: lightblue;
-    box-shadow: 2px 2px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(0deg, #ffffff 0px, #dedede 25px, #e2e2e2 25px, #a4a4a4 50px);
     transform: translateX(1px) translateY(1px);
+    transition-duration: 0.05s;
+    text-decoration: none;
 }
 
-.btnNumber,
-.btnOperation,
-.btnSpecial {
-    width: 50px;
-    height: 40px;
+.btnCalc span {
+    transition: color 0.2s;
 }
 
 .btnNumber span {
     color: black;
 }
 
+.btnNumber:hover span {
+    color: rgb(95, 95, 95);
+}
+
 .btnOperation span {
-    color: gray;
+    color: rgb(148, 147, 147);
+}
+
+.btnOperation:hover span {
+    color: rgb(177, 177, 177);
 }
 
 .btnSpecial span {
     color: orange;
 }
 
+.btnSpecial:hover span {
+    color: rgb(255, 193, 79);
+}
+
 .btnMem {
-    width: 50px;
-    height: 30px;
+    height: 35px;
     position: relative;
 }
 
@@ -178,14 +248,22 @@ h1 a:hover {
     color: red;
 }
 
+.btnMem:hover span {
+    position: absolute;
+    z-index: 0;
+    color: rgb(253, 91, 91);
+}
+
 .btnMem .header {
-    left: 5px;
-    top: 0px;
+    left: 8px;
+    top: 4px;
     transition: 0.1s;
 }
 
 .btnMem:active .header {
-    transform: translateX(-5px);
+    /* transform: translateX(-5px); */
+    transform: rotate(-10deg);
+    transition-duration: 0.1s;
 }
 
 .btnMem .success {
@@ -232,4 +310,76 @@ h1 a:hover {
 .btnMem:active .hint {
     transform: translateY(-40px);
     transition: 0.1s;
+}
+
+.bg-checkbox-wrap * {
+    box-sizing: content-box;
+}
+
+.bg-checkbox-wrap {
+    display: flex;
+    justify-content: center;
+}
+
+#switcher {
+    display: none;
+}
+
+#switcher-button {
+    position: relative;
+    display: block;
+    width: 100px;
+    height: 59px;
+    background-color: #dedede;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 2s ease background-color;
+    border: 3px solid #9c9797;
+}
+
+#switcher-button #btn {
+    width: 45px;
+    height: 45px;
+    background-image: url('../images/icon-128x128.png');
+    background-size: 100px;
+    position: relative;
+    top: 4px;
+    left: 5px;
+    border-radius: 50%;
+    transition: 2s ease left, 2s ease background-position;
+    z-index: 1;
+    border: 3px solid #9c9797;
+}
+
+#switcher-button #left,
+#switcher-button #right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #dedede;
+    font-size: 13px;
+    font-weight: bold;
+    font-family: Verdana, sans-serif;
+    text-transform: uppercase;
+    margin-left: 102px;
+    z-index: 0;
+    transition: 2s ease opacity;
+}
+
+#switcher-button #right {
+    margin-left: 30px;
+    opacity: 0;
+}
+
+#switcher:checked+#switcher-button #right {
+    opacity: 1;
+}
+
+#switcher:checked+#switcher-button #left {
+    opacity: 0;
+}
+
+#switcher:checked+#switcher-button #btn {
+    left: 43px;
+    background-position: -125px 0;
 }
