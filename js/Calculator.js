@@ -25,6 +25,7 @@ function math(a, b, operation) { //все вычисления проходят 
             else {
                 alert("Делить на 0 нельзя!");
                 signCE();
+                break;
             }
         case "%":
             return result = a * b * 0.01;
@@ -37,14 +38,18 @@ function math(a, b, operation) { //все вычисления проходят 
                 return result = tempA;
             }
         case "(Sqrt)":
-            {
-                return result = Math.sqrt(a);
+            if (a >= 0) return result = Math.sqrt(a);
+            else {
+                alert("Квадратный корень из отрицательного числа извлекать нельзя!");
+                signCE();
+                break;
             }
         case "(1/x)":
             if (a != 0) return result = 1 / a;
             else {
                 alert("Делить на 0 нельзя!");
                 signCE();
+                break;
             }
     }
 };
