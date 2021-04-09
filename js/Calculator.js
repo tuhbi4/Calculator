@@ -340,6 +340,22 @@ function signCA() { //обнуляем все переменные //memory об
 
 btnCA.onclick = signCA;
 
+function signMemSave() { //сохранить в память
+    memory = 0;
+    tempMemory = 0;
+    if (equalPressed) memory += result; // если операция уже произошла
+    else if (!signWasPressed) memory += Number(a); // если число первое
+    else memory += Number(b);
+    //equalPressed = true;
+    document.getElementById("btnMemSave").getElementsByClassName("hint")[0].innerHTML = String(memory);
+};
+
+btnMemSave.onclick = signMemSave;
+
+btnMemSave.onmouseover = function() {
+    this.getElementsByClassName("hint")[0].innerHTML = String(memory);
+};
+
 function signMemPlus() { //прибавить в память
     if (equalPressed) memory += result; // если операция уже произошла
     else if (!signWasPressed) memory += Number(a); // если число первое
