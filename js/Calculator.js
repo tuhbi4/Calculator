@@ -84,10 +84,10 @@ function operationChosed() { //нажат знак операции
 function displayValues() { //вывод всех значений в поле
     if (equalPressed) {
         document.getElementById("score").value = String(result); // вычисление уже совершено
-        document.getElementById("story").value += `\n` + document.getElementById("score").value;
+        document.getElementById("fieldLog").value += `\n` + document.getElementById("score").value;
     } else {
         document.getElementById("score").value = a + operation + b; //новое вычисление
-        document.getElementById("story").value += "";
+        document.getElementById("fieldLog").value += "";
 
     }
 };
