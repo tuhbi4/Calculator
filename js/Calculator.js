@@ -257,7 +257,7 @@ btnExp.onclick = signExp;
 function signRad() {
     operation = "(Sqrt)";
     operationChosed()
-    equal(); // число одно, сразу выводим
+    signEqual(); // число одно, сразу выводим
 };
 
 btnRad.onclick = signRad;
@@ -265,7 +265,7 @@ btnRad.onclick = signRad;
 function signFract() {
     operation = "(1/x)";
     operationChosed()
-    equal(); // число одно, сразу выводим
+    signEqual(); // число одно, сразу выводим
 };
 
 btnFract.onclick = signFract;
@@ -291,7 +291,7 @@ function signPlMn() {
 
 btnPlMn.onclick = signPlMn;
 
-function equal() { // вычисляем
+function signEqual() { // вычисляем
     if (signWasPressed) { // защита от ложных нажатий //если знак был нажат - пользователь делает вычисления, иначе нажимает кнопку просто так
         if (!equalPressed) { // вычисление новое
             math(Number(a), Number(b), operation); // перейти к вычислениям
@@ -301,7 +301,7 @@ function equal() { // вычисляем
     }
 };
 
-btnEqual.onclick = equal;
+btnEqual.onclick = signEqual;
 
 signC = function() {
     if (equalPressed) { // если вычисление произошло
@@ -349,7 +349,6 @@ function signMemSave() { //сохранить в память
     if (equalPressed) memory += result; // если операция уже произошла
     else if (!signWasPressed) memory += Number(a); // если число первое
     else memory += Number(b);
-    //equalPressed = true;
     document.getElementById("btnMemSave").getElementsByClassName("hint")[0].innerHTML = String(memory);
 };
 
@@ -363,7 +362,6 @@ function signMemPlus() { //прибавить в память
     if (equalPressed) memory += result; // если операция уже произошла
     else if (!signWasPressed) memory += Number(a); // если число первое
     else memory += Number(b);
-    //equalPressed = true;
     document.getElementById("btnMemPlus").getElementsByClassName("hint")[0].innerHTML = String(memory);
 };
 
@@ -378,7 +376,6 @@ function signMemMinus() { //вычесть из памяти
     if (equalPressed) memory -= result; // если операция уже произошла
     else if (!signWasPressed) memory -= Number(a); // если число первое
     else memory -= Number(b);
-    //equalPressed = true;
     document.getElementById("btnMemMinus").getElementsByClassName("hint")[0].innerHTML = String(memory);
 };
 
