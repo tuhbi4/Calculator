@@ -521,9 +521,9 @@ document.addEventListener("keyup", function(keyPressed) { // управлени�
 //     })
 // }
 
-btn.onclick = changeColorTheme1;
+btn.onclick = changeColorTheme;
 
-function changeColorTheme1() {
+function changeColorTheme() {
     var checkBox;
     checkBox = document.getElementById("switcher");
     if (checkBox.checked) {
