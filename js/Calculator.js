@@ -93,7 +93,7 @@ function displayValues() { //вывод всех значений в поле
     }
 }
 
-btnLog.onclick = rollingLog;
+btnRoll.onclick = rollingLog;
 
 function rollingLog() {
     let innerLogStyle = getComputedStyle(document.getElementById("innerLog"));
@@ -101,11 +101,14 @@ function rollingLog() {
     let newPositionString = "";
     let fieldLogStyle = getComputedStyle(document.getElementById("fieldLog"));
     let fieldHeight = Number(fieldLogStyle.lineHeight.split("px")[0]);
-    if (positionTop > fieldHeight) {
-        positionTop -= fieldHeight;
-        newPositionString = positionTop + "px";
+    let areaHeight = Number(fieldLogStyle.height.split("px")[0]);
+    positionTop -= fieldHeight;
+    newPositionString = positionTop + "px";
+    let topMax = document.getElementById("href").getBoundingClientRect().bottom - document.getElementById("innerCalc").getBoundingClientRect().top;
+    if (positionTop > topMax) {
         document.getElementById("innerLog").style.top = newPositionString;
-    } else document.getElementById("innerLog").style.top = "2px";
+        document.getElementById("fieldLog").style.height = areaHeight + fieldHeight + "px";
+    } else document.getElementById("innerLog").style.top = topMax;
 }
 
 function digit1() {
@@ -532,7 +535,7 @@ function changeColorTheme() {
         document.getElementById("canvas").style.height = "100vh";
         document.getElementById("innerLog").classList.replace("metallic", "transparent");
         document.getElementById("fieldLog").classList.replace("metallic", "transparent");
-        document.getElementById("calc").classList.replace("metallic", "transparent");
+        document.getElementById("innerCalc").classList.replace("metallic", "transparent");
         document.getElementById("switcher-button").classList.replace("metallic", "transparent");
     } else {
         let arrayOfElements = document.getElementsByClassName("btnCalc");
@@ -542,7 +545,7 @@ function changeColorTheme() {
         document.getElementById("canvas").style.height = "0";
         document.getElementById("innerLog").classList.replace("transparent", "metallic");
         document.getElementById("fieldLog").classList.replace("transparent", "metallic");
-        document.getElementById("calc").classList.replace("transparent", "metallic");
+        document.getElementById("innerCalc").classList.replace("transparent", "metallic");
         document.getElementById("switcher-button").classList.replace("transparent", "metallic");
     }
 }

@@ -1,12 +1,9 @@
 ﻿body {
-    position: relative;
     background: rgb(255, 255, 255) url("../images/background.jpg") repeat scroll 0% 0%;
     font-family: Arial, Sans-Serif;
-    margin: auto;
     width: 100vw;
     height: 100vh;
-    display: flex;
-    flex-direction: column;
+    z-index: 0;
 }
 
 .pageHeader,
@@ -25,11 +22,6 @@
     border-top-right-radius: 10px;
 }
 
-h1,
-h6 {
-    margin: auto;
-}
-
 h1 a:link,
 h1 a:visited {
     text-decoration: none;
@@ -43,32 +35,54 @@ h1 a:hover {
     transition-duration: 0.3s;
 }
 
-.pageSection {
+.flex {
+    position: relative;
+    display: flex;
+}
+
+.row-direction {
+    flex-direction: row;
+}
+
+.column-direction {
+    flex-direction: column;
+}
+
+.autoMargin {
     margin: auto;
 }
 
-.innerSection {
-    margin: auto;
-    clear: both;
-}
-
-.innerCalc {
-    position: static;
+.noneMargin {
+    margin: 0;
 }
 
 .innerHitory {
     margin-inline: 10px;
 }
 
-#innerLog {
-    float: right;
+#innerCalc {
+    display: flex;
     position: relative;
-    right: 25px;
-    top: 22em;
-    z-index: 0;
+    z-index: 2;
+    width: 290px;
+    border-radius: 8px;
+    box-shadow: 0 0 8px black, 0 -3px 3px gray;
+    margin: auto;
+    padding: 5px;
+}
+
+#innerCalc.metallic {
+    background: linear-gradient(0deg, #c8c8c8 303px, #a4a4a4 307px);
+    border: outset 3px;
+}
+
+#innerCalc.transparent {
+    background: #e2e3de20;
+    border: outset 1px;
 }
 
 #fieldLog {
+    position: relative;
     padding: 3px;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
     font-size: 0.8em;
@@ -77,6 +91,8 @@ h1 a:hover {
     resize: none;
     overflow: auto;
     text-align: right;
+    width: 21em;
+    height: 2em;
 }
 
 #fieldLog.metallic {
@@ -98,6 +114,13 @@ h1 a:hover {
     width: 0;
 }
 
+#innerLog {
+    position: absolute;
+    left: 1em;
+    top: -2.5em;
+    z-index: 1;
+}
+
 #innerLog hr {
     position: relative;
     height: 20px;
@@ -107,7 +130,6 @@ h1 a:hover {
 
 #innerLog hr:after {
     content: "";
-    display: block;
     position: absolute;
     top: 3px;
     left: 0;
@@ -123,37 +145,6 @@ h1 a:hover {
 
 #innerLog.transparent hr:after {
     background-image: linear-gradient(315deg, #e2e3de20 30%, transparent 30%), linear-gradient(45deg, #e2e3de20 30%, transparent 30%);
-}
-
-.log {
-    border-radius: 5px;
-    margin-left: 5px;
-    padding: 0;
-}
-
-.log legend {
-    margin-left: 70%;
-    margin-right: 10%;
-}
-
-#calc {
-    position: relative;
-    z-index: 0;
-    width: 290px;
-    border-radius: 8px;
-    box-shadow: 0 0 8px black, 0 -3px 3px gray;
-    margin: auto;
-    padding: 5px;
-}
-
-#calc.metallic {
-    background: linear-gradient(0deg, #c8c8c8 290px, #a4a4a4 295px);
-    border: outset 3px;
-}
-
-#calc.transparent {
-    background: #e2e3de20;
-    border: outset 1px;
 }
 
 .score {
@@ -193,7 +184,6 @@ h1 a:hover {
 }
 
 .btnCalcTransparent {
-    display: inline-block;
     margin-bottom: 1rem;
     color: rgba(255, 255, 255, 0.7);
     background-color: rgba(255, 255, 255, 0.08);
@@ -216,7 +206,7 @@ h1 a:hover {
     height: 45px;
     box-shadow: black 0 0 3px;
     transition: background 0.2s, border-color 0.2s;
-    margin: 2px;
+    margin: 3px;
     font-weight: 500;
     font-size: 1.3em;
     font-stretch: condensed;
@@ -347,12 +337,11 @@ h1 a:hover {
 
 #switcher-button {
     position: relative;
-    display: block;
-    width: 125px;
+    width: 155px;
     height: 59px;
     border-radius: 50px;
     cursor: pointer;
-    transition: 0.4s ease background-color;
+    transition: 0.3s ease background-color;
     border: 3px solid #9c9797;
 }
 
@@ -367,13 +356,13 @@ h1 a:hover {
 #switcher-button #knob {
     width: 45px;
     height: 45px;
-    background-image: url('../images/icon-128x128.png');
+    background-image: url('../images/theme-icon.png');
     background-size: 100px;
     position: relative;
     top: 4px;
     left: 5px;
     border-radius: 50%;
-    transition: 0.4s ease left, 0.4s ease background-position;
+    transition: 0.3s ease left, 0.3s ease background-position;
     z-index: 1;
     border: 3px solid #9c9797;
 }
@@ -388,13 +377,13 @@ h1 a:hover {
     font-weight: bold;
     font-family: Verdana, sans-serif;
     text-transform: uppercase;
-    margin-left: 60px;
+    margin-left: 70px;
     z-index: 0;
-    transition: 0.4s ease opacity;
+    transition: 0.3s ease opacity;
 }
 
 #switcher-button #right {
-    margin-left: 20px;
+    margin-left: 10px;
     opacity: 0;
 }
 
@@ -407,11 +396,26 @@ h1 a:hover {
 }
 
 #switcher:checked+#switcher-button #knob {
-    left: 68px;
-    background-position: -125px 0;
+    left: 98px;
+    background-position: -55px 0;
 }
 
 #canvas {
     position: absolute;
     z-index: -999;
+}
+
+#btnRoll,
+#switcherButton {
+    position: absolute;
+}
+
+#switcherButton {
+    top: 0;
+    left: 0;
+}
+
+#btnRoll {
+    top: 70px;
+    left: 0;
 }

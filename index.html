@@ -17,72 +17,70 @@
 
 </head>
 
-<body>
+<body class="flex column-direction autoMargin">
     <canvas id="canvas"></canvas>
-    <header class="pageHeader">
-        <h1><a href="https://github.com/tuhbi4/Calculator">Calculator</a></h1>
-    </header>
+    <header class="pageHeader flex">
+        <h1 class="autoMargin" id="href"><a href="https://github.com/tuhbi4/Calculator">Calculator</a></h1>
+        <button id="btnRoll" class="btnCalc btnCalcMetallic"><span>roll</span></button>
 
-    <button id="btnLog" class="btnCalc btnCalcMetallic"><span>roll</span></button>
-
-    <div id="switcherButton" class="switcher-wrap">
-        <input type="checkbox" id="switcher" />
-        <label for="switcher" id="switcher-button" class="metallic">
+        <div id="switcherButton" class="switcher-wrap">
+            <input type="checkbox" id="switcher" />
+            <label for="switcher" id="switcher-button" class="metallic">
         <div id="knob"></div>
         <div id="left">Metallic</div>
-        <div id="right">Cyan</div>
+        <div id="right">Transparent</div>
     </label>
-    </div>
-
-    <section class="pageSection">
-        <div class="innerSection">
-            <div id="innerLog" class="metallic">
-                <hr>
-                <textarea rows="23" cols="40" name="fieldLog" id="fieldLog" class="metallic" disabled></textarea>
-            </div>
         </div>
-        <article class="innerSection innerCalc">
+    </header>
 
-            <div id="calc" class="metallic">
+
+
+    <section class="flex column-direction autoMargin">
+        <div>
+            <div id="innerLog" class="flex column-direction metallic">
+                <hr>
+                <textarea name="fieldLog" id="fieldLog" class="metallic" disabled></textarea>
+            </div>
+            <div id="innerCalc" class="flex column-direction metallic">
                 <div>
                     <input type="text" id="score" class="score" placeholder="0" readonly="readonly" />
                 </div>
-                <div>
+                <div class="flex row-direction autoMargin">
                     <button id="btnMemSave" class="btnCalc btnCalcMetallic btnMem"><span class="header">MS</span><span class="success">OK!</span><span class="hint">0</span></button>
                     <button id="btnMemPlus" class="btnCalc btnCalcMetallic btnMem"><span class="header">M+</span><span class="success">OK!</span><span class="hint">0</span></button>
                     <button id="btnMemMinus" class="btnCalc btnCalcMetallic btnMem"><span class="header">M-</span><span class="success">OK!</span><span class="hint">0</span></button>
                     <button id="btnMemRecall" class="btnCalc btnCalcMetallic btnMem"><span class="header">MR</span><span class="success">OK!</span><span class="hint">0</span></button>
                     <button id="btnMemClear" class="btnCalc btnCalcMetallic btnMem"><span class="header">MC</span><span class="success">OK!</span></button>
                 </div>
-                <div>
+                <div class="flex row-direction autoMargin">
                     <button id="btnCA" class="btnCalc btnCalcMetallic btnSpecial"><span>CA</span></button>
                     <button id="btnCE" class="btnCalc btnCalcMetallic btnSpecial"><span>CE</span></button>
                     <button id="btnC" class="btnCalc btnCalcMetallic btnSpecial"><span>C</span></button>
                     <button id="btnDivide" class="btnCalc btnCalcMetallic btnOperation"><span>&divide;</span></button>
                     <button id="btnFract" class="btnCalc btnCalcMetallic btnSpecial"><span>&sup1;/x</span></button>
                 </div>
-                <div>
+                <div class="flex row-direction autoMargin">
                     <button id="btn7" class="btnCalc btnCalcMetallic btnNumber"><span>7</span></button>
                     <button id="btn8" class="btnCalc btnCalcMetallic btnNumber"><span>8</span></button>
                     <button id="btn9" class="btnCalc btnCalcMetallic btnNumber"><span>9</span></button>
                     <button id="btnMulti" class="btnCalc btnCalcMetallic btnOperation"><span>&times;</span></button>
                     <button id="btnExp" class="btnCalc btnCalcMetallic btnSpecial"><span>x^</span></button>
                 </div>
-                <div>
+                <div class="flex row-direction autoMargin">
                     <button id="btn4" class="btnCalc btnCalcMetallic btnNumber"><span>4</span></button>
                     <button id="btn5" class="btnCalc btnCalcMetallic btnNumber"><span>5</span></button>
                     <button id="btn6" class="btnCalc btnCalcMetallic btnNumber"><span>6</span></button>
                     <button id="btnMinus" class="btnCalc btnCalcMetallic btnOperation"><span>-</span></button>
                     <button id="btnRad" class="btnCalc btnCalcMetallic btnSpecial"><span>&radic;</span></button>
                 </div>
-                <div>
+                <div class="flex row-direction autoMargin">
                     <button id="btn1" class="btnCalc btnCalcMetallic btnNumber"><span>1</span></button>
                     <button id="btn2" class="btnCalc btnCalcMetallic btnNumber"><span>2</span></button>
                     <button id="btn3" class="btnCalc btnCalcMetallic btnNumber"><span>3</span></button>
                     <button id="btnPlus" class="btnCalc btnCalcMetallic btnOperation"><span>+</span></button>
                     <button id="btnPrcnt" class="btnCalc btnCalcMetallic btnSpecial"><span>%</span></button>
                 </div>
-                <div>
+                <div class="flex row-direction autoMargin">
                     <button id="btn000" class="btnCalc btnCalcMetallic btnNumber"><span>000</span></button>
                     <button id="btn0" class="btnCalc btnCalcMetallic btnNumber"><span>0</span></button>
                     <button id="btnPoint" class="btnCalc btnCalcMetallic btnNumber"><span>.</span></button>
@@ -90,15 +88,14 @@
                     <button id="btnPlMn" class="btnCalc btnCalcMetallic btnNumber"><span>&plusmn;</span></button>
                 </div>
             </div>
-        </article>
-
+        </div>
     </section>
 
-    <footer class="pageFooter ">
-        <h6>Created by @TuHbI4</h6>
+    <footer class="pageFooter flex">
+        <h6 class="autoMargin">Created by @TuHbI4</h6>
     </footer>
 
-    <script src="js/three.min.js "></script>
+    <script src=" js/three.min.js "></script>
     <script src="js/Cyan.js "></script>
     <script src="js/Calculator.js "></script>
 </body>
