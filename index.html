@@ -18,74 +18,76 @@
 </head>
 
 <body>
+    <canvas id="canvas"></canvas>
     <header class="pageHeader">
         <h1><a href="https://github.com/tuhbi4/Calculator">Calculator</a></h1>
     </header>
 
-    <button id="btnLog" class="btnCalc btnMem"><span class="header">RL</span><span class="success">OK!</span><span class="hint">0</span></button>
-    <div class="switcher-wrap" id="btn">
+    <button id="btnLog" class="btnCalc btnCalcMetallic"><span>roll</span></button>
+
+    <div id="switcherButton" class="switcher-wrap">
         <input type="checkbox" id="switcher" />
-        <label id="switcher-button" for="switcher">
+        <label for="switcher" id="switcher-button" class="metallic">
         <div id="knob"></div>
-        <div id="left"></div>
-        <div id="right"></div>
+        <div id="left">Metallic</div>
+        <div id="right">Cyan</div>
     </label>
     </div>
 
     <section class="pageSection">
         <div class="innerSection">
-            <div id="innerLog">
+            <div id="innerLog" class="metallic">
                 <hr>
-                <textarea rows="23" cols="40" name="fieldLog" id="fieldLog" disabled></textarea>
+                <textarea rows="23" cols="40" name="fieldLog" id="fieldLog" class="metallic" disabled></textarea>
             </div>
         </div>
         <article class="innerSection innerCalc">
 
-            <div class="calc">
+            <div id="calc" class="metallic">
                 <div>
                     <input type="text" id="score" class="score" placeholder="0" readonly="readonly" />
                 </div>
                 <div>
-                    <button id="btnMemSave" class="btnCalc btnMem"><span class="header">MS</span><span class="success">OK!</span><span class="hint">0</span></button>
-                    <button id="btnMemPlus" class="btnCalc btnMem"><span class="header">M+</span><span class="success">OK!</span><span class="hint">0</span></button>
-                    <button id="btnMemMinus" class="btnCalc btnMem"><span class="header">M-</span><span class="success">OK!</span><span class="hint">0</span></button>
-                    <button id="btnMemRecall" class="btnCalc btnMem"><span class="header">MR</span><span class="success">OK!</span><span class="hint">0</span></button>
-                    <button id="btnMemClear" class="btnCalc btnMem"><span class="header">MC</span><span class="success">OK!</span></button>
+                    <button id="btnMemSave" class="btnCalc btnCalcMetallic btnMem"><span class="header">MS</span><span class="success">OK!</span><span class="hint">0</span></button>
+                    <button id="btnMemPlus" class="btnCalc btnCalcMetallic btnMem"><span class="header">M+</span><span class="success">OK!</span><span class="hint">0</span></button>
+                    <button id="btnMemMinus" class="btnCalc btnCalcMetallic btnMem"><span class="header">M-</span><span class="success">OK!</span><span class="hint">0</span></button>
+                    <button id="btnMemRecall" class="btnCalc btnCalcMetallic btnMem"><span class="header">MR</span><span class="success">OK!</span><span class="hint">0</span></button>
+                    <button id="btnMemClear" class="btnCalc btnCalcMetallic btnMem"><span class="header">MC</span><span class="success">OK!</span></button>
                 </div>
                 <div>
-                    <button id="btnCA" class="btnCalc btnSpecial"><span>CA</span></button>
-                    <button id="btnCE" class="btnCalc btnSpecial"><span>CE</span></button>
-                    <button id="btnC" class="btnCalc btnSpecial"><span>C</span></button>
-                    <button id="btnDivide" class="btnCalc btnOperation"><span>&divide;</span></button>
-                    <button id="btnFract" class="btnCalc btnSpecial"><span>&sup1;/x</span></button>
+                    <button id="btnCA" class="btnCalc btnCalcMetallic btnSpecial"><span>CA</span></button>
+                    <button id="btnCE" class="btnCalc btnCalcMetallic btnSpecial"><span>CE</span></button>
+                    <button id="btnC" class="btnCalc btnCalcMetallic btnSpecial"><span>C</span></button>
+                    <button id="btnDivide" class="btnCalc btnCalcMetallic btnOperation"><span>&divide;</span></button>
+                    <button id="btnFract" class="btnCalc btnCalcMetallic btnSpecial"><span>&sup1;/x</span></button>
                 </div>
                 <div>
-                    <button id="btn7" class="btnCalc btnNumber"><span>7</span></button>
-                    <button id="btn8" class="btnCalc btnNumber"><span>8</span></button>
-                    <button id="btn9" class="btnCalc btnNumber"><span>9</span></button>
-                    <button id="btnMulti" class="btnCalc btnOperation"><span>&times;</span></button>
-                    <button id="btnExp" class="btnCalc btnSpecial"><span>x^</span></button>
+                    <button id="btn7" class="btnCalc btnCalcMetallic btnNumber"><span>7</span></button>
+                    <button id="btn8" class="btnCalc btnCalcMetallic btnNumber"><span>8</span></button>
+                    <button id="btn9" class="btnCalc btnCalcMetallic btnNumber"><span>9</span></button>
+                    <button id="btnMulti" class="btnCalc btnCalcMetallic btnOperation"><span>&times;</span></button>
+                    <button id="btnExp" class="btnCalc btnCalcMetallic btnSpecial"><span>x^</span></button>
                 </div>
                 <div>
-                    <button id="btn4" class="btnCalc btnNumber"><span>4</span></button>
-                    <button id="btn5" class="btnCalc btnNumber"><span>5</span></button>
-                    <button id="btn6" class="btnCalc btnNumber"><span>6</span></button>
-                    <button id="btnMinus" class="btnCalc btnOperation"><span>-</span></button>
-                    <button id="btnRad" class="btnCalc btnSpecial"><span>&radic;</span></button>
+                    <button id="btn4" class="btnCalc btnCalcMetallic btnNumber"><span>4</span></button>
+                    <button id="btn5" class="btnCalc btnCalcMetallic btnNumber"><span>5</span></button>
+                    <button id="btn6" class="btnCalc btnCalcMetallic btnNumber"><span>6</span></button>
+                    <button id="btnMinus" class="btnCalc btnCalcMetallic btnOperation"><span>-</span></button>
+                    <button id="btnRad" class="btnCalc btnCalcMetallic btnSpecial"><span>&radic;</span></button>
                 </div>
                 <div>
-                    <button id="btn1" class="btnCalc btnNumber"><span>1</span></button>
-                    <button id="btn2" class="btnCalc btnNumber"><span>2</span></button>
-                    <button id="btn3" class="btnCalc btnNumber"><span>3</span></button>
-                    <button id="btnPlus" class="btnCalc btnOperation"><span>+</span></button>
-                    <button id="btnPrcnt" class="btnCalc btnSpecial"><span>%</span></button>
+                    <button id="btn1" class="btnCalc btnCalcMetallic btnNumber"><span>1</span></button>
+                    <button id="btn2" class="btnCalc btnCalcMetallic btnNumber"><span>2</span></button>
+                    <button id="btn3" class="btnCalc btnCalcMetallic btnNumber"><span>3</span></button>
+                    <button id="btnPlus" class="btnCalc btnCalcMetallic btnOperation"><span>+</span></button>
+                    <button id="btnPrcnt" class="btnCalc btnCalcMetallic btnSpecial"><span>%</span></button>
                 </div>
                 <div>
-                    <button id="btn000" class="btnCalc btnNumber"><span>000</span></button>
-                    <button id="btn0" class="btnCalc btnNumber"><span>0</span></button>
-                    <button id="btnPoint" class="btnCalc btnNumber"><span>.</span></button>
-                    <button id="btnEqual" class="btnCalc btnOperation"><span>=</span></button>
-                    <button id="btnPlMn" class="btnCalc btnNumber"><span>&plusmn;</span></button>
+                    <button id="btn000" class="btnCalc btnCalcMetallic btnNumber"><span>000</span></button>
+                    <button id="btn0" class="btnCalc btnCalcMetallic btnNumber"><span>0</span></button>
+                    <button id="btnPoint" class="btnCalc btnCalcMetallic btnNumber"><span>.</span></button>
+                    <button id="btnEqual" class="btnCalc btnCalcMetallic btnOperation"><span>=</span></button>
+                    <button id="btnPlMn" class="btnCalc btnCalcMetallic btnNumber"><span>&plusmn;</span></button>
                 </div>
             </div>
         </article>
@@ -96,6 +98,8 @@
         <h6>Created by @TuHbI4</h6>
     </footer>
 
+    <script src="js/three.min.js "></script>
+    <script src="js/Cyan.js "></script>
     <script src="js/Calculator.js "></script>
 </body>
 

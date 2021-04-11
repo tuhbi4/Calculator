@@ -519,7 +519,7 @@ document.addEventListener("keyup", function(keyPressed) { // управлени�
 //     })
 // }
 
-btn.onclick = changeColorTheme;
+switcherButton.onclick = changeColorTheme;
 
 function changeColorTheme() {
     let checkBox;
@@ -527,20 +527,26 @@ function changeColorTheme() {
     if (checkBox.checked) {
         let arrayOfElements = document.getElementsByClassName("btnCalc");
         for (let index = 0; index < arrayOfElements.length; index++) {
-            arrayOfElements[index].classList.add("btnCalcCyan");
+            arrayOfElements[index].classList.replace("btnCalcMetallic", "btnCalcTransparent");
         }
-        arrayOfElements = document.getElementsByClassName("btnCalcCyan");
-        for (let index = 0; index < arrayOfElements.length; index++) {
-            arrayOfElements[index].classList.remove("btnCalc");
-        }
+        document.getElementById("canvas").style.height = "100vh";
+        document.getElementById("innerLog").classList.replace("metallic", "transparent");
+        document.getElementById("fieldLog").classList.replace("metallic", "transparent");
+        document.getElementById("calc").classList.replace("metallic", "transparent");
+        document.getElementById("switcher-button").classList.replace("metallic", "transparent");
     } else {
-        let arrayOfElements = document.getElementsByClassName("btnCalcCyan");
+        let arrayOfElements = document.getElementsByClassName("btnCalc");
         for (let index = 0; index < arrayOfElements.length; index++) {
-            arrayOfElements[index].classList.add("btnCalc");
+            arrayOfElements[index].classList.replace("btnCalcTransparent", "btnCalcMetallic", );
         }
-        arrayOfElements = document.getElementsByClassName("btnCalc");
-        for (let index = 0; index < arrayOfElements.length; index++) {
-            arrayOfElements[index].classList.remove("btnCalcCyan");
-        }
+        document.getElementById("canvas").style.height = "0";
+        document.getElementById("innerLog").classList.replace("transparent", "metallic");
+        document.getElementById("fieldLog").classList.replace("transparent", "metallic");
+        document.getElementById("calc").classList.replace("transparent", "metallic");
+        document.getElementById("switcher-button").classList.replace("transparent", "metallic");
     }
 }
+
+window.addEventListener("load", function() {
+    document.getElementById("canvas").style.height = "0";
+})
