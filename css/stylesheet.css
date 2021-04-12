@@ -6,15 +6,8 @@
     z-index: 0;
 }
 
-.pageHeader,
 .pageFooter {
     text-align: center;
-}
-
-.pageHeader {
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    color: White;
 }
 
 .pageFooter {
@@ -33,6 +26,14 @@ h1 a:visited {
 h1 a:hover {
     color: rgb(145, 241, 217);
     transition-duration: 0.3s;
+}
+
+h6.metallic {
+    color: black;
+}
+
+h6.transparent {
+    color: white;
 }
 
 .flex {
@@ -168,23 +169,22 @@ h1 a:hover {
     outline: none;
 }
 
-.btnCalcMetallic {
+.btnCalc.metallic {
     text-shadow: 1px -1px #ebebeb, 1px 1px #ebebeb, -1px -1px #ebebeb, -1px 1px #ebebeb;
     background: linear-gradient(180deg, #f7f7f7 0px, #dedede 24px, #c8c8c8 26px, #a4a4a4 50px);
     border-radius: 8px;
 }
 
-.btnCalcMetallic:hover {
+.btnCalc.metallic:hover {
     background: linear-gradient(180deg, #ffffff 0px, #dedede 25px, #e2e2e2 25px, #a4a4a4 50px);
     border-color: rgba(156, 156, 156, 0.3);
 }
 
-.btnCalcMetallic:active {
+.btnCalc.metallic:active {
     background: linear-gradient(0deg, #ffffff 0px, #dedede 25px, #e2e2e2 25px, #a4a4a4 50px);
 }
 
-.btnCalcTransparent {
-    margin-bottom: 1rem;
+.btnCalc.transparent {
     color: rgba(255, 255, 255, 0.7);
     background-color: rgba(255, 255, 255, 0.08);
     border-color: rgba(255, 255, 255, 0.2);
@@ -194,7 +194,7 @@ h1 a:hover {
     transition: color 0.2s, background-color 0.2s, border-color 0.2s;
 }
 
-.btnCalcTransparent:hover {
+.btnCalc.transparent:hover {
     color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
     background-color: rgba(255, 255, 255, 0.2);
@@ -322,20 +322,11 @@ h1 a:hover {
     transition: 0.1s;
 }
 
-.switcher-wrap * {
-    box-sizing: left-box;
-}
-
-.switcher-wrap {
-    display: flex;
-    justify-content: left;
-}
-
 #switcher {
     display: none;
 }
 
-#switcher-button {
+#switcherButton {
     position: relative;
     width: 155px;
     height: 59px;
@@ -345,15 +336,15 @@ h1 a:hover {
     border: 3px solid #9c9797;
 }
 
-#switcher-button.metallic {
+#switcherButton.metallic {
     background-color: #dedede;
 }
 
-#switcher-button.transparent {
+#switcherButton.transparent {
     background-color: #dedede20;
 }
 
-#switcher-button #knob {
+#switcherButton #knob {
     width: 45px;
     height: 45px;
     background-image: url('../images/theme-icon.png');
@@ -367,8 +358,8 @@ h1 a:hover {
     border: 3px solid #9c9797;
 }
 
-#switcher-button #left,
-#switcher-button #right {
+#switcherButton #left,
+#switcherButton #right {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -382,37 +373,32 @@ h1 a:hover {
     transition: 0.3s ease opacity;
 }
 
-#switcher-button #right {
+#switcherButton #right {
     margin-left: 10px;
     opacity: 0;
 }
 
-#switcher:checked+#switcher-button #right {
+#switcher:checked+#switcherButton #right {
     opacity: 1;
 }
 
-#switcher:checked+#switcher-button #left {
+#switcher:checked+#switcherButton #left {
     opacity: 0;
 }
 
-#switcher:checked+#switcher-button #knob {
+#switcher:checked+#switcherButton #knob {
     left: 98px;
     background-position: -55px 0;
 }
 
 #canvas {
+    display: none;
     position: absolute;
     z-index: -999;
 }
 
-#btnRoll,
-#switcherButton {
+#btnRoll {
     position: absolute;
-}
-
-#switcherButton {
-    top: 0;
-    left: 0;
 }
 
 #btnRoll {

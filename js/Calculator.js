@@ -93,8 +93,6 @@ function displayValues() { //вывод всех значений в поле
     }
 }
 
-btnRoll.onclick = rollingLog;
-
 function rollingLog() {
     let innerLogStyle = getComputedStyle(document.getElementById("innerLog"));
     let positionTop = Number(innerLogStyle.top.split("px")[0]);
@@ -528,28 +526,17 @@ function changeColorTheme() {
     let checkBox;
     checkBox = document.getElementById("switcher");
     if (checkBox.checked) {
-        let arrayOfElements = document.getElementsByClassName("btnCalc");
-        for (let index = 0; index < arrayOfElements.length; index++) {
-            arrayOfElements[index].classList.replace("btnCalcMetallic", "btnCalcTransparent");
-        }
-        document.getElementById("canvas").style.height = "100vh";
-        document.getElementById("innerLog").classList.replace("metallic", "transparent");
-        document.getElementById("fieldLog").classList.replace("metallic", "transparent");
-        document.getElementById("innerCalc").classList.replace("metallic", "transparent");
-        document.getElementById("switcher-button").classList.replace("metallic", "transparent");
+        replaceClass("transparent", "metallic")
+        document.getElementById("canvas").style.display = "none";
     } else {
-        let arrayOfElements = document.getElementsByClassName("btnCalc");
-        for (let index = 0; index < arrayOfElements.length; index++) {
-            arrayOfElements[index].classList.replace("btnCalcTransparent", "btnCalcMetallic", );
-        }
-        document.getElementById("canvas").style.height = "0";
-        document.getElementById("innerLog").classList.replace("transparent", "metallic");
-        document.getElementById("fieldLog").classList.replace("transparent", "metallic");
-        document.getElementById("innerCalc").classList.replace("transparent", "metallic");
-        document.getElementById("switcher-button").classList.replace("transparent", "metallic");
+        replaceClass("metallic", "transparent")
+        document.getElementById("canvas").style.display = "block";
     }
 }
 
-window.addEventListener("load", function() {
-    document.getElementById("canvas").style.height = "0";
-})
+function replaceClass(findThisClass, replaceToThisClass) {
+    let arrayOfElements = document.getElementsByClassName(findThisClass);
+    for (let index = 0; index < arrayOfElements.length; index) {
+        arrayOfElements[index].classList.replace(findThisClass, replaceToThisClass);
+    }
+}
