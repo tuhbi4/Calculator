@@ -102,7 +102,7 @@ function rollingLog() {
     let areaHeight = Number(fieldLogStyle.height.split("px")[0]);
     positionTop -= fieldHeight;
     newPositionString = positionTop + "px";
-    let topMax = document.getElementById("href").getBoundingClientRect().bottom - document.getElementById("innerCalc").getBoundingClientRect().top;
+    let topMax = document.getElementById("anchor").getBoundingClientRect().bottom - document.getElementById("innerCalc").getBoundingClientRect().top;
     if (positionTop > topMax) {
         document.getElementById("innerLog").style.top = newPositionString;
         document.getElementById("fieldLog").style.height = areaHeight + fieldHeight + "px";
