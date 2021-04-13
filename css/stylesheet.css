@@ -89,6 +89,7 @@ h6.transparent {
 
 .innerButtons {
     width: max-content;
+    display: flex;
 }
 
 #score {
